@@ -1,9 +1,9 @@
 ﻿namespace mission8_4_6_v2.Models
 {
-    public class Repository : ITaskRepository
+    public class TaskRepository : ITaskRepository
     {
         public TaskContext _context { get; set; }
-        public Repository(TaskContext context) 
+        public TaskRepository(TaskContext context) 
         {
             _context = context;
         }
