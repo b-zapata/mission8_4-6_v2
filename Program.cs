@@ -8,9 +8,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<TodoContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:TasksConnection"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:TodosConnection"]);
 });
-builder.Services.AddScoped<ITodoRepository, TaskRepository>();
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 var app = builder.Build();
 
