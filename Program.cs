@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<TodoContext>(options =>
+builder.Services.AddDbContext<TodosContext>(options =>
 {
     options.UseSqlite(builder.Configuration["ConnectionStrings:TodosConnection"]);
 });
