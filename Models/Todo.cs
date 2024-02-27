@@ -4,13 +4,13 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 namespace mission8_4_6_v2.Models
 {
-    public class Task
+    public class Todo
     {
         [Key]
-        [Required(ErrorMessage = "TaskId is a required field")]
-        public int TaskId { get; set; }
-        [Required(ErrorMessage = "Task is a required field")]
-        public string TaskName { get; set; } = string.Empty;
+        [Required(ErrorMessage = "TodoId is a required field")]
+        public int TodoId { get; set; }
+        [Required(ErrorMessage = "Todo is a required field")]
+        public string TodoName { get; set; } = string.Empty;
         [Range(1, 31, ErrorMessage = "Day must be between 1-31")]
         public int? Day { get; set; }
         [Range(1, 12, ErrorMessage = "Month must be between 1-12")]
