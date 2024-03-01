@@ -2,8 +2,8 @@
 {
     public class TodoRepository : ITodoRepository
     {
-        public TodoContext _context { get; set; }
-        public TodoRepository(TodoContext context) 
+        public TodosContext _context { get; set; }
+        public TodoRepository(TodosContext context) 
         {
             _context = context;
         }

@@ -16,7 +16,7 @@ public partial class TodosContext : DbContext
         modelBuilder.Entity<Todo>(entity =>
         {
             entity.Property(e => e.CategoryId).HasDefaultValue(1);
-            entity.Property(e => e.Completed).HasDefaultValue(0);
+            entity.Property(e => e.Completed).HasDefaultValue(false);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Todos).HasForeignKey(d => d.CategoryId);
         });

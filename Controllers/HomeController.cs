@@ -29,14 +29,21 @@ namespace mission8_4_6_v2.Controllers
         [HttpGet]
         public IActionResult CreateTask()
         {
-            return View();
+            Todo newTask = new Todo();
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryId)
+                .ToList();
+
+            return View("Add_Edit", newTask);
         }
 
+        /*
         [HttpPost]
         public IActionResult CreateTask()
         {
             return View();
         }
+        */
 
         [HttpGet]
         public IActionResult EditTask(int TodoId)
