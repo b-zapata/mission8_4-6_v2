@@ -6,12 +6,25 @@ namespace mission8_4_6_v2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // private readonly ILogger<HomeController> _logger;
 
+        private TodosContext _context;
+
+        public HomeController(TodosContext temp)
+        {
+            _context = temp;
+        }
+        /*
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+        */
+        
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult CreateTask()
@@ -26,41 +39,54 @@ namespace mission8_4_6_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditTask()
+        public IActionResult EditTask(int TodoId)
         {
-            return View();
+            var taskToEdit = _context.Todos
+                .Single(x => x.TodoId == TodoId);
+
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryId)
+                .ToList();
+
+            return View("TasksForm", taskToEdit);
         }
 
         [HttpPost]
-        public IActionResult EditTask()
+        public IActionResult EditTask(Todo updatedInfo)
         {
-            return View();
+            _context.Update(updatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("Quadrants");
         }
 
         [HttpGet]
-        public IActionResult DeleteTask()
+        public IActionResult DeleteTask(int TodoId)
         {
-            return View();
+            var taskToDelete = _context.Todos
+                .Single(x => x.TodoId == TodoId);
+            // Need to set up the ConfirmDelete view
+            return View("ConfirmDelete", taskToDelete);
         }
 
         [HttpPost]
-        public IActionResult DeleteTask()
+        public IActionResult DeleteTask(Todo taskToDelete)
         {
-            return View();
+            _context.Todos.Remove(taskToDelete);
+            _context.SaveChanges();
+
+            return RedirectToAction("Quadrants");
         }
 
         [HttpGet]
-        public IActionResult Tasks()
+        public IActionResult Quadrants()
         {
             return View();
         }
 
 
         /*
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
 
 
         public IActionResult Privacy()
