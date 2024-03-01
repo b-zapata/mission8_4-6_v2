@@ -20,3 +20,46 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.red-box {
+    background-color: #ffcccc; /* Softer shade of red */
+    margin-bottom: 100px;
+}
+
+.orange-box {
+    background-color: #ffd699; /* Softer shade of orange */
+    margin-bottom: 100px;
+}
+
+.blue-box {
+    background-color: #99ccff; /* Softer shade of blue */
+    margin-bottom: 100px;
+}
+
+.green-box {
+    background-color: #99ff99; /* Softer shade of green */
+    margin-bottom: 100px;
+}
+
+.box {
+    margin-bottom: 100px; /* Increase the margin to create more space */
+    border-radius: 10px; /* Adding rounded corners to the boxes */
+}
+
+/* Reduce the font size of table headers and cells */
+.table th,
+.table td {
+    font-size: 12px;
+}
+
+/* Reduce the font size of h4 headers */
+h4 {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Optional: Adjust padding for better spacing */
+.table th,
+.table td {
+    padding: 5px; /* Adjust as needed */
+}

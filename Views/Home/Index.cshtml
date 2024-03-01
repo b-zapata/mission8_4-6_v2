@@ -2,7 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the Todo App</h1>
+    <p class="lead">Organize your tasks effectively with the Quadrant system!</p>
+    <hr class="my-4">
+    <br /><br />
+    <p>Learn how to prioritize tasks using the Quadrant system inspired by "The 7 Habits of Highly Effective People" by Steven Covey.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/Todo/AddEdit" role="button">Get Started</a>
+    </p>
+</div>
+<br /><br />
+<div class="row">
+    <div class="col-md-4">
+        <h2>What is the Quadrant System?</h2>
+        <p>Discover how Quadrants I, II, III, and IV can help you categorize and prioritize your tasks based on importance and urgency.</p>
+        <p><a class="btn btn-secondary" href="/Quadrants" role="button">Learn More &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Add/Edit Tasks</h2>
+        <p>Create, update, and manage your tasks with ease. Use the Add/Edit Task feature to keep your to-do list organized.</p>
+        <p><a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="CreateTask">Start Adding Tasks &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>View Quadrants</h2>
+        <p>Visualize your tasks in Quadrants and easily identify what needs your immediate attention or can be scheduled for later.</p>
+        <p><a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Quadrants">Explore Quadrants &raquo;</a></p>
+    </div>
 </div>
