@@ -23,32 +23,37 @@
                             <td>Important</td>
                             <td>Category</td>
                             <td>Completed</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            <tr>
-                                <td>@x.TodoName</td>
-                                <td>@x.Day</td>
-                                <td>@x.Month</td>
-                                <td>@x.Year</td>
-                                <td>@x.Urgent</td>
-                                <td>@x.Important</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
+                            if (x.Urgent && x.Important)
+                            {
+                                <tr>
+                                    <td>@x.TodoName</td>
+                                    <td>@x.Day</td>
+                                    <td>@x.Month</td>
+                                    <td>@x.Year</td>
+                                    <td>@x.Urgent</td>
+                                    <td>@x.Important</td>
+                                    <td>@x.Category?.CategoryName</td>
+                                    <td>@x.Completed</td>
 
-                                <td>
-                                    <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
@@ -68,32 +73,37 @@
                             <td>Important</td>
                             <td>Category</td>
                             <td>Completed</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            <tr>
-                                <td>@x.TodoName</td>
-                                <td>@x.Day</td>
-                                <td>@x.Month</td>
-                                <td>@x.Year</td>
-                                <td>@x.Urgent</td>
-                                <td>@x.Important</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
+                            if (!x.Urgent && x.Important)
+                            {
+                                <tr>
+                                    <td>@x.TodoName</td>
+                                    <td>@x.Day</td>
+                                    <td>@x.Month</td>
+                                    <td>@x.Year</td>
+                                    <td>@x.Urgent</td>
+                                    <td>@x.Important</td>
+                                    <td>@x.Category?.CategoryName</td>
+                                    <td>@x.Completed</td>
 
-                                <td>
-                                    <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>  
+                            } 
                         }
                     </tbody>
                 </table>
@@ -113,32 +123,37 @@
                             <td>Important</td>
                             <td>Category</td>
                             <td>Completed</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            <tr>
-                                <td>@x.TodoName</td>
-                                <td>@x.Day</td>
-                                <td>@x.Month</td>
-                                <td>@x.Year</td>
-                                <td>@x.Urgent</td>
-                                <td>@x.Important</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
+                            if (x.Urgent && !x.Important)
+                            {
+                                <tr>
+                                    <td>@x.TodoName</td>
+                                    <td>@x.Day</td>
+                                    <td>@x.Month</td>
+                                    <td>@x.Year</td>
+                                    <td>@x.Urgent</td>
+                                    <td>@x.Important</td>
+                                    <td>@x.Category?.CategoryName</td>
+                                    <td>@x.Completed</td>
 
-                                <td>
-                                    <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
@@ -158,32 +173,37 @@
                             <td>Important</td>
                             <td>Category</td>
                             <td>Completed</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var x in Model)
                         {
-                            <tr>
-                                <td>@x.TodoName</td>
-                                <td>@x.Day</td>
-                                <td>@x.Month</td>
-                                <td>@x.Year</td>
-                                <td>@x.Urgent</td>
-                                <td>@x.Important</td>
-                                <td>@x.Category?.CategoryName</td>
-                                <td>@x.Completed</td>
+                            if (!x.Urgent && !x.Important)
+                            {
+                                <tr>
+                                    <td>@x.TodoName</td>
+                                    <td>@x.Day</td>
+                                    <td>@x.Month</td>
+                                    <td>@x.Year</td>
+                                    <td>@x.Urgent</td>
+                                    <td>@x.Important</td>
+                                    <td>@x.Category?.CategoryName</td>
+                                    <td>@x.Completed</td>
 
-                                <td>
-                                    <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
-                                        <i class="fas fa-trash-alt"></i> Delete
-                                    </a>
-                                </td>
-                            </tr>
+                                    <td>
+                                        <a class="btn btn-info btn-circle" asp-controller="Home" asp-action="EditTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger btn-circle" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TodoId">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
