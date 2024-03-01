@@ -2,12 +2,13 @@
 {
     public class TodoRepository : ITodoRepository
     {
-        public TodoContext _context { get; set; }
-        public TodoRepository(TodoContext context) 
+        private TodosContext _context { get; set; }
+        public TodoRepository(TodosContext context) 
         {
             _context = context;
         }
         public List<Todo> Todos => _context.Todos.ToList();
+        public List<Category> Categories => _context.Categories.ToList();
         public void AddTodo(Todo Todo)
         {
             _context.Todos.Add(Todo);
