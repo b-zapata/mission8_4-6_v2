@@ -53,9 +53,16 @@
 
     <div class="form-group">
         <label asp-for="Completed">Completed:</label>
-        <input asp-for="Completed" type="checkbox" class="form-check-input" />
+        <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
+        <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
     </div>
 
+    <!--
+    <div class="form-group">
+        <label asp-for="Completed">Completed:</label>
+        <input asp-for="Completed" type="checkbox" class="form-check-input" />
+    </div>
+    -->
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>
