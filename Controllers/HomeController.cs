@@ -88,7 +88,10 @@ namespace mission8_4_6_v2.Controllers
         [HttpGet]
         public IActionResult Quadrants()
         {
-            return View();
+            var tasks = _context.Todos
+                .OrderBy(x => x.TodoId)
+                .ToList();
+            return View(tasks);
         }
 
 
