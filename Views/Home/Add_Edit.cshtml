@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Todo
+
+@{
+    ViewData["Title"] = "Add/Edit Task";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="SaveTodo" method="post">
+    <div class="form-group">
+        <label asp-for="TodoName">Task:</label>
+        <input asp-for="TodoName" class="form-control" required />
+        <span asp-validation-for="TodoName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DueDate">Due Date:</label>
+        <input asp-for="DueDate" type="date" class="form-control" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quadrant">Quadrant:</label>
+        <select asp-for="Quadrant" class="form-control" required>
+            <option value="I">Quadrant I: Important / Urgent</option>
+            <option value="II">Quadrant II: Important / Not Urgent</option>
+            <option value="III">Quadrant III: Not Important / Urgent</option>
+            <option value="IV">Quadrant IV: Not Important / Not Urgent</option>
+        </select>
+        <span asp-validation-for="Quadrant" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Category">Category:</label>
+        <select asp-for="CategoryId" asp-items="@Model.Categories.Select(c => new SelectListItem { Text = c.CategoryName, Value = c.CategoryId.ToString() })" class="form-control" required>
+            <option value="">-- Select Category --</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Completed">Completed:</label>
+        <input asp-for="Completed" type="checkbox" class="form-check-input" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
