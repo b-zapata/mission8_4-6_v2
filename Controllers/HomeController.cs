@@ -37,13 +37,14 @@ namespace mission8_4_6_v2.Controllers
             return View("Add_Edit", newTask);
         }
 
-        /*
         [HttpPost]
-        public IActionResult CreateTask()
+        public IActionResult CreateTask(Todo response)
         {
-            return View();
+            _context.Todos.Add(response);
+            _context.SaveChanges();
+            // Need to add a task added confirmation view
+            return View("TaskAddedConfirmation", response);
         }
-        */
 
         [HttpGet]
         public IActionResult EditTask(int TodoId)
