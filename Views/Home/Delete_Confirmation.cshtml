@@ -36,18 +36,6 @@
     <hr class="my-4">
     <p>Please confirm the deletion before proceeding.</p>
     <p class="lead">
-        <!--
-        <form method="post">
-            <input type="hidden" name="TodoId" value="@Model.TodoId" />
-            <button type="submit" class="btn btn-danger btn-lg">Confirm Delete</button>
-        </form>
-        -->
-        <!--
-        <form asp-action="DeleteTask" asp-controller="Home" method="post">
-            <input type="hidden" asp-for="TodoId" />
-            <button type="submit" class="btn btn-danger btn-lg">Confirm Delete</button>
-        </form>
-        -->
         <form method="post">
             <input type="hidden" asp-for="TodoId" />
             <input type="hidden" asp-for="TodoName" />
@@ -58,10 +46,8 @@
             <input type="hidden" asp-for="Urgent" />
             <input type="hidden" asp-for="Important" />
             <input type="hidden" asp-for="Completed" />
-
             <button type="submit" class="btn btn-danger btn-lg">Confirm Delete</button>
         </form>
-
         <a class="btn btn-primary btn-lg" href="/Home">Cancel</a>
     </p>
 </div>

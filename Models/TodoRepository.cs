@@ -1,4 +1,6 @@
-﻿namespace mission8_4_6_v2.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace mission8_4_6_v2.Models
 {
     public class TodoRepository : ITodoRepository
     {
@@ -8,7 +10,8 @@
         {
             _context = context;
         }
-        public List<Todo> Todos => _context.Todos.ToList();
+        // public List<Todo> Todos => _context.Todos.ToList();
+        public List<Todo> Todos => _context.Todos.Include(t => t.Category).ToList();
         public List<Category> Categories => _context.Categories.ToList();
         public void AddTodo(Todo Todo)
         {
