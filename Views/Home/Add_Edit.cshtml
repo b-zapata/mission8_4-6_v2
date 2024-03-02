@@ -90,18 +90,15 @@
         </div>
         <div class="form-group">
             <label asp-for="Urgent">Urgent:</label>
-            <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
-            <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
+            <input type="checkbox" asp-for="Urgent" />
         </div>
         <div class="form-group">
             <label asp-for="Important">Important:</label>
-            <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
-            <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
+            <input type="checkbox" asp-for="Important" />
         </div>
         <div class="form-group">
             <label asp-for="Completed">Completed:</label>
-            <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
-            <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
+            <input type="checkbox" asp-for="Completed" />
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Save</button>
