@@ -35,6 +35,10 @@ namespace mission8_4_6_v2.Controllers
                 _repo.AddTodo(response);
                 return View("Task_Added_Confirmation", response);
             }
+            else
+            {
+                return View("Failed_To_Add");
+            }
         }
 
         [HttpGet]
@@ -53,15 +57,16 @@ namespace mission8_4_6_v2.Controllers
                 _repo.UpdateTodo(updatedInfo);
                 return RedirectToAction("Quadrants");
             }
+            else
+            {
+                return View("Failed_To_Edit");
+            }
         }
 
         [HttpGet]
         public IActionResult DeleteTask(int id)
         {
             Todo taskToDelete = _repo.GetTodo(id);
-            //var taskToDelete = _context.Todos
-            //    .Single(x => x.TodoId == TodoId);
-            // Need to set up the ConfirmDelete view
             return View("Delete_Confirmation", taskToDelete);
         }
 
@@ -69,9 +74,6 @@ namespace mission8_4_6_v2.Controllers
         public IActionResult DeleteTask(Todo taskToDelete)
         {
             _repo.DeleteTodo(taskToDelete);
-            //_context.Todos.Remove(taskToDelete);
-            //_context.SaveChanges();
-
             return RedirectToAction("Quadrants");
         }
 

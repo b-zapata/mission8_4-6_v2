@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Delete Confirmation";
+    ViewData["Title"] = "Confirmation Page";
 }
 
 <style>
@@ -28,19 +28,13 @@
     }
 </style>
 
-@model Todo
-
 <div class="jumbotron text-center">
-    <h1 class="display-4">Delete Confirmation</h1>
-    <p class="lead">Are you sure you want to delete this entry?</p>
+    <h1 class="display-4">There was a problem.</h1>
+    <p class="lead">The task was unable to be added.</p>
     <hr class="my-4">
-    <p>Please confirm the deletion before proceeding.</p>
+    <p>Thank you for using the Todo App. Please try again later.</p>
     <p class="lead">
-        <form method="post">
-            <!--<input type="hidden" name="id" value="@Model.TodoId" />-->
-            <button type="submit" class="btn btn-danger btn-lg">Confirm Delete</button>
-        </form>
-        <a class="btn btn-primary btn-lg" href="/Home">Cancel</a>
+        <a class="btn btn-primary btn-lg" href="/Home">Back to Home</a>
     </p>
 </div>
 
