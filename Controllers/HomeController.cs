@@ -6,21 +6,14 @@ namespace mission8_4_6_v2.Controllers
 {
     public class HomeController : Controller
     {
-        // private readonly ILogger<HomeController> _logger;
 
-        private TodosContext _context;
+        private ITodoRepository _repo;
 
-        public HomeController(TodosContext temp)
+        public HomeController(ITodoRepository temp)
         {
-            _context = temp;
+            _repo = temp;
         }
-        /*
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-        */
-        
+
         public IActionResult Index()
         {
             return View();
@@ -30,30 +23,31 @@ namespace mission8_4_6_v2.Controllers
         public IActionResult CreateTask()
         {
             Todo newTask = new Todo();
-            ViewBag.Categories = _context.Categories
-                .OrderBy(x => x.CategoryId)
-                .ToList();
+            ViewBag.Categories = _repo.Categories;
 
             return View("Add_Edit", newTask);
         }
 
-        /*
         [HttpPost]
-        public IActionResult CreateTask()
+        public IActionResult CreateTask(Todo response)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _repo.AddTodo(response);
+            }
+            // Need to add a task added confirmation view
+            return View("TaskAddedConfirmation", response);
         }
-        */
 
         [HttpGet]
         public IActionResult EditTask(int TodoId)
         {
-            var taskToEdit = _context.Todos
-                .Single(x => x.TodoId == TodoId);
+            Todo taskToEdit = _repo.GetTodo(TodoId);
 
-            ViewBag.Categories = _context.Categories
-                .OrderBy(x => x.CategoryId)
-                .ToList();
+            // var taskToEdit = _context.Todos
+            //    .Single(x => x.TodoId == TodoId);
+
+            ViewBag.Categories = _repo.Categories;
 
             return View("TasksForm", taskToEdit);
         }
@@ -61,8 +55,10 @@ namespace mission8_4_6_v2.Controllers
         [HttpPost]
         public IActionResult EditTask(Todo updatedInfo)
         {
-            _context.Update(updatedInfo);
-            _context.SaveChanges();
+            _repo.UpdateTodo(updatedInfo);
+
+            //_context.Update(updatedInfo);
+            //_context.SaveChanges();
 
             return RedirectToAction("Quadrants");
         }
@@ -70,17 +66,19 @@ namespace mission8_4_6_v2.Controllers
         [HttpGet]
         public IActionResult DeleteTask(int TodoId)
         {
-            var taskToDelete = _context.Todos
-                .Single(x => x.TodoId == TodoId);
+            Todo taskToDelete = _repo.GetTodo(TodoId);
+            //var taskToDelete = _context.Todos
+            //    .Single(x => x.TodoId == TodoId);
             // Need to set up the ConfirmDelete view
-            return View("ConfirmDelete", taskToDelete);
+            return View("Quadrants", taskToDelete);
         }
 
         [HttpPost]
         public IActionResult DeleteTask(Todo taskToDelete)
         {
-            _context.Todos.Remove(taskToDelete);
-            _context.SaveChanges();
+            _repo.DeleteTodo(taskToDelete);
+            //_context.Todos.Remove(taskToDelete);
+            //_context.SaveChanges();
 
             return RedirectToAction("Quadrants");
         }
@@ -88,22 +86,11 @@ namespace mission8_4_6_v2.Controllers
         [HttpGet]
         public IActionResult Quadrants()
         {
-            var tasks = _context.Todos
+            var tasks = _repo.Todos
                 .OrderBy(x => x.TodoId)
                 .ToList();
             return View(tasks);
         }
-
-
-        /*
-        
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        */
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
