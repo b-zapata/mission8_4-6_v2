@@ -40,9 +40,9 @@ namespace mission8_4_6_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditTask(int TodoId)
+        public IActionResult EditTask(int id)
         {
-            Todo taskToEdit = _repo.GetTodo(TodoId);
+            Todo taskToEdit = _repo.GetTodo(id);
 
             // var taskToEdit = _context.Todos
             //    .Single(x => x.TodoId == TodoId);
@@ -64,9 +64,9 @@ namespace mission8_4_6_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteTask(int TodoId)
+        public IActionResult DeleteTask(int id)
         {
-            Todo taskToDelete = _repo.GetTodo(TodoId);
+            Todo taskToDelete = _repo.GetTodo(id);
             //var taskToDelete = _context.Todos
             //    .Single(x => x.TodoId == TodoId);
             // Need to set up the ConfirmDelete view
