@@ -64,13 +64,13 @@ namespace mission8_4_6_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteTask(int TodoId)
+        public IActionResult DeleteTask(int id)
         {
             Todo taskToDelete = _repo.GetTodo(TodoId);
             //var taskToDelete = _context.Todos
             //    .Single(x => x.TodoId == TodoId);
             // Need to set up the ConfirmDelete view
-            return View("ConfirmDelete", taskToDelete);
+            return View("Quadrants", taskToDelete);
         }
 
         [HttpPost]
