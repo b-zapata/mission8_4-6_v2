@@ -1,6 +1,57 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Confirmation Page";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    body {
+        background-color: #f0f0f0; /* Light Gray */
+    }
+
+    .jumbotron {
+        background-color: #f0e8d4; /* Light Beige */
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .col-md-4 {
+        background-color: #cfe8f3; /* Pastel Blue */
+        border-radius: 15px;
+        padding: 20px;
+        margin: 10px;
+    }
+</style>
+
+<div class="jumbotron text-center">
+    <h1 class="display-4">Confirmation</h1>
+    <p class="lead">Your deletion was successful!</p>
+    <hr class="my-4">
+    <p>Thank you for using the Todo App. Your entry has been deleted successfully.</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="/Home">Back to Home</a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>What is the Quadrant System?</h2>
+        <p>Discover how Quadrants I, II, III, and IV can help you categorize and prioritize your tasks based on importance and urgency.</p>
+        <p><a class="btn btn-secondary" href="https://timeular.com/blog/time-management-matrix/" role="button">Learn More &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Add/Edit Tasks</h2>
+        <p>Create, update, and manage your tasks with ease. Use the Add/Edit Task feature to keep your to-do list organized.</p>
+        <p><a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="CreateTask">Start Adding Tasks &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>View Quadrants</h2>
+        <p>Visualize your tasks in Quadrants and easily identify what needs your immediate attention or can be scheduled for later.</p>
+        <p><a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Quadrants">Explore Quadrants &raquo;</a></p>
+    </div>
+</div>
