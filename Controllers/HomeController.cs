@@ -64,7 +64,7 @@ namespace mission8_4_6_v2.Controllers
         }
 
         [HttpGet]
-        public IActionResult DeleteTask(int id)
+        public IActionResult DeleteTask(int TodoId)
         {
             Todo taskToDelete = _repo.GetTodo(TodoId);
             //var taskToDelete = _context.Todos
