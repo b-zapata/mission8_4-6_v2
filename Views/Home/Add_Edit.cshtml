@@ -7,35 +7,35 @@
 @model Todo
 
 @{
-    ViewData["Title"] = "Add/Edit Task";
+    ViewData["Title"] = "Create Task";
 }
 
 <h2>@ViewData["Title"]</h2>
-
+<br />
 <form asp-action="SaveTodo" method="post">
     <div class="form-group">
         <label asp-for="TodoName">Task:</label>
         <input asp-for="TodoName" class="form-control" required />
         <span asp-validation-for="TodoName" class="text-danger"></span>
     </div>
-
+    <br />
+    <p>Due Date:</p>
     <div class="form-group">
-        <label asp-for="DueDate">Due Date:</label>
-        <input asp-for="DueDate" type="date" class="form-control" />
-        <span asp-validation-for="DueDate" class="text-danger"></span>
+        <label asp-for="Day">Day:</label>
+        <input asp-for="Day" class="form-control" placeholder="DD" required />
+        <span asp-validation-for="Day" class="text-danger"></span>
     </div>
-
     <div class="form-group">
-        <label asp-for="Quadrants">Quadrant:</label>
-        <select asp-for="Quadrants" class="form-control" required>
-            <option value="I">Quadrant I: Important / Urgent</option>
-            <option value="II">Quadrant II: Important / Not Urgent</option>
-            <option value="III">Quadrant III: Not Important / Urgent</option>
-            <option value="IV">Quadrant IV: Not Important / Not Urgent</option>
-        </select>
-        <span asp-validation-for="Quadrants" class="text-danger"></span>
+        <label asp-for="Month">Month:</label>
+        <input asp-for="Month" class="form-control" placeholder="MM" required />
+        <span asp-validation-for="Month" class="text-danger"></span>
     </div>
-
+    <div class="form-group">
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" class="form-control" placeholder="YYYY" required />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <br />
     <div class="form-group">
         <label asp-for="Category">Category:</label>
         <select asp-for="CategoryId">
@@ -48,19 +48,25 @@
         </select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
     </div>
-
+    <br />
+    <div class="form-group">
+        <label asp-for="Urgent">Urgent:</label>
+        <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
+        <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Important">Important:</label>
+        <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
+        <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
+    </div>
+    <br />
     <div class="form-group">
         <label asp-for="Completed">Completed:</label>
         <input type="checkbox" class="form-check-input" checked="@(Model.Completed ?? false)" />
         <input type="hidden" asp-for="Completed" /> <!-- Include hidden input for model binding -->
     </div>
-
-    <!--
-    <div class="form-group">
-        <label asp-for="Completed">Completed:</label>
-        <input asp-for="Completed" type="checkbox" class="form-check-input" />
-    </div>
-    -->
+    <br />
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Save</button>
     </div>

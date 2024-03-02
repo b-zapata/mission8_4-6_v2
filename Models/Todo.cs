@@ -16,7 +16,7 @@ public partial class Todo
     public int? Day { get; set; }
     [Range(1, 12, ErrorMessage = "Month must be between 1-12")]
     public int? Month { get; set; }
-    [Range(2024, int.MinValue, ErrorMessage = "Year must be greater than 2024")]
+    [Range(2024, int.MaxValue, ErrorMessage = "Year must be greater than 2024")]
     public int? Year { get; set; }
     [Required(ErrorMessage = "Urgent is a required field")]
     public bool Urgent { get; set; }
