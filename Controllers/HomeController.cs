@@ -24,7 +24,6 @@ namespace mission8_4_6_v2.Controllers
         {
             Todo newTask = new Todo();
             ViewBag.Categories = _repo.Categories;
-
             return View("Add_Edit", newTask);
         }
 
@@ -34,33 +33,26 @@ namespace mission8_4_6_v2.Controllers
             if (ModelState.IsValid)
             {
                 _repo.AddTodo(response);
+                return View("Task_Added_Confirmation", response);
             }
-            // Need to add a task added confirmation view
-            return View("Task_Added_Confirmation", response);
         }
 
         [HttpGet]
         public IActionResult EditTask(int id)
         {
             Todo taskToEdit = _repo.GetTodo(id);
-
-            // var taskToEdit = _context.Todos
-            //    .Single(x => x.TodoId == TodoId);
-
             ViewBag.Categories = _repo.Categories;
-
             return View("Add_Edit", taskToEdit);
         }
 
         [HttpPost]
         public IActionResult EditTask(Todo updatedInfo)
         {
-            _repo.UpdateTodo(updatedInfo);
-
-            //_context.Update(updatedInfo);
-            //_context.SaveChanges();
-
-            return RedirectToAction("Quadrants");
+            if (ModelState.IsValid)
+            {
+                _repo.UpdateTodo(updatedInfo);
+                return RedirectToAction("Quadrants");
+            }
         }
 
         [HttpGet]
@@ -86,9 +78,7 @@ namespace mission8_4_6_v2.Controllers
         [HttpGet]
         public IActionResult Quadrants()
         {
-            var tasks = _repo.Todos
-                .OrderBy(x => x.TodoId)
-                .ToList();
+            var tasks = _repo.Todos;
             return View(tasks);
         }
 
