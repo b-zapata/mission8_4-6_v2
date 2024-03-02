@@ -25,5 +25,5 @@ public partial class Todo
     [ForeignKey("Category")]
     public int? CategoryId { get; set; }
     public virtual Category? Category { get; set; }
-    public bool? Completed { get; set; }
+    public bool Completed { get; set; }
 }
