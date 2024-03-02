@@ -36,7 +36,7 @@ namespace mission8_4_6_v2.Controllers
                 _repo.AddTodo(response);
             }
             // Need to add a task added confirmation view
-            return View("TaskAddedConfirmation", response);
+            return View("Task_Added_Confirmation", response);
         }
 
         [HttpGet]
@@ -70,7 +70,7 @@ namespace mission8_4_6_v2.Controllers
             //var taskToDelete = _context.Todos
             //    .Single(x => x.TodoId == TodoId);
             // Need to set up the ConfirmDelete view
-            return View("Quadrants", taskToDelete);
+            return View("Delete_Confirmation", taskToDelete);
         }
 
         [HttpPost]
