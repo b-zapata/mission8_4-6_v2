@@ -2,6 +2,32 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    body {
+        background-color: #f0f0f0; /* Light Gray */
+    }
+
+    .jumbotron {
+        background-color: #f0e8d4; /* Light Beige */
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .row {
+        display: flex;
+        justify-content:center;
+        margin: 20px 0;
+    }
+
+    .col-md-4 {
+        background-color: #cfe8f3; /* Pastel Blue */
+        border-radius: 15px;
+        padding: 20px;
+        margin: 10px;
+    }
+</style>
+
 <div class="jumbotron text-center">
     <h1 class="display-4">Welcome to the Todo App</h1>
     <p class="lead">Organize your tasks effectively with the Quadrant system!</p>
@@ -12,7 +38,7 @@
         <a class="btn btn-primary btn-lg" href="https://www.amazon.com/Habits-Highly-Effective-People/dp/1471195201/ref=asc_df_1471195201&mcid=30b2c55462e5342ca8e1bde41ad7adf5?tag=bingshoppinga-20&linkCode=df0&hvadid=80127029710338&hvnetw=o&hvqmt=e&hvbmt=be&hvdev=c&hvlocint=&hvlocphy=&hvtargid=pla-4583726554854239&psc=1" role="button">Purchase Book</a>
     </p>
 </div>
-<br /><br /><br />
+
 <div class="row">
     <div class="col-md-4">
         <h2>What is the Quadrant System?</h2>
@@ -30,4 +56,3 @@
         <p><a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Quadrants">Explore Quadrants &raquo;</a></p>
     </div>
 </div>
-<br /><br />
